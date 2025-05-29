@@ -1,0 +1,88 @@
+Task 3
+-----
+
+
+README.txt  
+
+Task Title: Time Series Modeling  
+
+Objective 
+To analyze and forecast the "Low" prices of a financial asset using statistical and machine learning techniques, including Holt-Winters, ARIMA, Auto ARIMA, and SARIMA models. This project aims to understand historical trends, address seasonality and stochastic components, and provide reliable predictions for informed decision-making.  
+
+---
+
+Dataset Overview  
+
+- Source: Historical stock prices dataset.  
+- Target Variable: Low prices of the financial asset.  
+- Preprocessing:  
+  - Missing value handling using `sum(is.na)` and subset data creation.  
+  - Date formatting and conversion for time series analysis.  
+  - Created a time series object specifying frequency and start date.  
+
+---
+
+Models Applied  
+
+1. Holt-Winters Exponential Smoothing 
+- Captures level and trend components (not focused on seasonality).  
+- Forecasted 90 days ahead with clear visualizations.  
+- Validation:  
+  - Error metrics: MAE, RMSE, MAPE.  
+  - Residual analysis using ACF plot and Ljung-Box test.  
+
+2. ARIMA (AutoRegressive Integrated Moving Average)  
+- Differencing performed to ensure stationarity.  
+- ACF and PACF plots used for parameter identification.  
+- Residual analysis confirmed the model fit with minimal autocorrelation.  
+
+3. Auto ARIMA 
+- Automated parameter selection based on AIC and BIC.  
+- Compared manually tuned ARIMA(0,1,1) and Auto ARIMA(2,1,2).  
+- Produced 90-step forecasts with low RMSE and MAPE.  
+
+4. SARIMA (Seasonal ARIMA)  
+- Addressed seasonality effectively.  
+- Provided stable predictions with minimized AIC/BIC values.  
+- Residuals showed no significant autocorrelation.  
+
+---
+
+Comparison of Models  
+
+- Holt-Winters: Captured short-term patterns but limited seasonality modeling.  
+- ARIMA: Modeled trends and autocorrelations effectively.  
+- Auto ARIMA: Optimized parameter selection for accurate predictions.  
+- SARIMA: Best performance for handling seasonality, offering the most robust and accurate forecasts.  
+
+Recommendation: SARIMA is the preferred model due to its ability to handle seasonality and provide reliable predictions.  
+
+---
+
+Instructions to Replicate  
+
+1. Environment Setup  
+   - Install necessary libraries: `forecast`, `TTR`, `stats`, `ggplot2`, and `Tidyverse` in R.  
+
+2. Steps  
+   - Load the dataset and preprocess (convert date column, handle missing values).  
+   - Create the time series object and visualize the data.  
+   - Apply the Holt-Winters, ARIMA, Auto ARIMA, and SARIMA models.  
+   - Evaluate each model using error metrics and residual analysis.  
+   - Visualize forecasts and compare model performance.  
+
+3. Folder Structure  
+   - `/data`: Contains the stock prices dataset.  
+   - `/scripts`: R scripts for model application and evaluation.  
+   - `/outputs`: Includes forecasts, residual plots, and model performance metrics.  
+
+---
+
+References  
+
+1. Box, G. E. P., Jenkins, G. M., & Reinsel, G. C. (2015). Time series analysis: Forecasting and control. Wiley.  
+2. Hyndman, R. J., & Athanasopoulos, G. (2018). Forecasting: Principles and practice. OTexts.  
+3. Ljung, G. M., & Box, G. E. P. (1978). On a measure of lack of fit in time series models. Biometrika, 65(2), 297-303.  
+4. Brockwell, P. J., & Davis, R. A. (2016). Introduction to time series and forecasting. Springer.  
+
+---
